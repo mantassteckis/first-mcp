@@ -47,7 +47,14 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 // Handle tool calls
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (request.params.name === "echo") {
-    const message = request.params.arguments?.message;
+    if (!request.params.arguments) {
+      throw new McpError(
+        ErrorCode.InvalidParams,
+        "Missing arguments"
+      );
+    }
+
+    const message = request.params.arguments.message;
     
     if (typeof message !== "string") {
       throw new McpError(

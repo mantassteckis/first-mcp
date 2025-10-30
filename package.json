@@ -1,7 +1,7 @@
 {
   "name": "first-mcp",
   "version": "1.0.0",
-  "description": "creating my first mcp",
+  "description": "My first Model Context Protocol (MCP) server",
   "type": "module",
   "bin": {
     "first-mcp": "./dist/index.js"
